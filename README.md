@@ -20,10 +20,10 @@ There are two ways how to set up the project for QTM:
 ## General Information
 
 This repository provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM. It contains:
-   - Two **walking trials**
-   - Marker set: **IOR**  
+   - Two **walking trials** with **IOR**  marker set
+   - Two force plates
+   - Four EMG channels
    - Associated reconstruction method  
-   - Force platforms and EMG
 
 ## Installation and Configuration for Automated Processing
 The following steps describe the installation and configuration of Pipe and Cleanse to enable automated processing.
