@@ -1,0 +1,27 @@
+details:
+  id: iordemo
+  name: Calibrate and reconstruct the QIOR model
+  version: 0.0.1
+  publisher: moveck
+  extension: gait
+  description: Pipeline used by the QIOR model and associated processings to computed joint kinematics and kinetics
+
+steps:
+  - task: moveck.data.prepare-data
+    inputs:
+      modelName: IOR
+
+  - task: ior.gait.calibratedemo
+    inputs:
+      modelName: IOR
+    condition: ${{trial.attrs.measurementType == "Static"}}
+
+  - task: ior.gait.kinematicsdemo
+    inputs:
+      modelName: IOR
+    condition: ${{trial.attrs.measurementType == "Dynamic"}}
+
+  - task: ior.gait.kineticsdemo
+    inputs:
+      modelName: IOR
+    condition: ${{trial.attrs.measurementType == "Dynamic"}}

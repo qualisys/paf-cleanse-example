@@ -1,0 +1,107 @@
+details:
+  id: kineticsdemo
+  name: Computation of normalized joint kinetics for the IOR model
+  version: 1.0.0
+  publisher: ior
+  extension: gait
+  description: Compute normalized joint kinetics in the specified coordinate system, from segments pose of the IOR model and ground reaction wrench.
+  categories:
+  - biomechanics
+  - gait
+  - motion analysis
+  tags:
+  - inverse dynamics
+  - joint kinetics
+  - normalization
+
+parameters:
+  - name: finiteDifferenceMethod
+    type: string
+    default: Cascade
+    description: Method to compute velocities and acceleration (Cascade or Direct)
+  - name: kineticsChains
+    type: list(string)
+    default: [LeftLowerLimb, RightLowerLimb]
+    description: List of the kinetics chains processed
+  - name: referenceCoordinateSystem
+    type: string
+    default: Proximal
+    description: Coordinate system used to express joint kinetics (Proximal or Distal)
+  - name: modelName
+    type: string
+    default: IOR
+
+steps:
+  - task: moveck.ior.compute-relative-inertial-parameters
+    inputs:
+      sourceGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+      destinationGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+      Mass: ${{env.Mass}}
+
+  - task: classical-mechanics.inertial-parameters
+    inputs:
+      model: ${{trial.data.processings}}/${{parameters.modelName}}
+
+  - task: classical-mechanics.body-kinematics
+    inputs:
+      model: ${{trial.data.processings}}/${{parameters.modelName}}
+      FiniteDifferenceMethod: ${{parameters.finiteDifferenceMethod}}
+
+  - task: classical-mechanics.body-dynamics@1
+    inputs:
+      model: ${{trial.data.processings}}/${{parameters.modelName}}
+      chains: ${{parameters.kineticsChains}}
+      gravityDirection: [0,0,-1]
+      GlobalVerticalAxis: ${{env.GlobalVerticalAxis}}
+
+  - task: moveck.lwbm.compute-joint-kinetics
+    inputs:
+      model: ${{trial.data.processings}}/${{parameters.modelName}}
+      ReferenceCoordinateSystem: ${{parameters.referenceCoordinateSystem}}
+
+  - task: classical-mechanics.joint-power
+    inputs:
+      model: ${{trial.data.processings}}/${{parameters.modelName}}
+
+  - task: biomechanist-normalization.attribute-related
+    inputs:
+      sourceGroup: ${{trial.data.processings}}/${{parameters.modelName}}/Joints
+      normalizationParameterGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+      NormalizedSets:
+        - "LeftHip/Force"
+        - "RightHip/Force"
+        - "LeftKnee/Force"
+        - "RightKnee/Force"
+        - "LeftAnkle/Force"
+        - "RightAnkle/Force"
+      unit: N/kg
+      attribute: ${{env.Mass}}
+
+  - task: biomechanist-normalization.attribute-related
+    inputs:
+      sourceGroup: ${{trial.data.processings}}/${{parameters.modelName}}/Joints
+      normalizationParameterGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+      NormalizedSets:
+        - "LeftHip/Moment"
+        - "RightHip/Moment"
+        - "LeftKnee/Moment"
+        - "RightKnee/Moment"
+        - "LeftAnkle/Moment"
+        - "RightAnkle/Moment"
+      unit: Nm/kg
+      attribute: ${{env.Mass}}
+      scale: 0.001
+
+  - task: biomechanist-normalization.attribute-related
+    inputs:
+      sourceGroup: ${{trial.data.processings}}/${{parameters.modelName}}/Joints
+      normalizationParameterGroup: ${{environment}}
+      NormalizedSets:
+        - "LeftHip/Power"
+        - "RightHip/Power"
+        - "LeftKnee/Power"
+        - "RightKnee/Power"
+        - "LeftAnkle/Power"
+        - "RightAnkle/Power"
+      unit: W/kg
+      attribute: ${{env.Mass}}

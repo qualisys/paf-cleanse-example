@@ -1,0 +1,80 @@
+details:
+  id: prepare-emg-channels
+  name: Prepare EMG channels
+  version: 1.0.0
+  publisher: moveck
+  extension: device
+  description: Pipeline to prepare EMG channels
+  categories:
+  - biomechanics
+  - motion analysis
+  - gait analysis
+  tags:
+  - calibration
+
+parameters:
+  - name: filterEnabled
+    type: boolean
+    default: true
+  - name: filterCutoff
+    type: number
+    default: 30
+  - name: filterOrder
+    type: integer
+    default: 4
+
+steps:
+  - task: moveck.data-modifier.split-set
+    displayName : Separate EMG data sets
+    inputs:
+      SourceSet: ${{trial.data.source}}/Data/Analogs
+      DestinationGroup: ${{trial.data.processings}}/Emg
+      LabelsFilter: ${{env.emgList}}
+      SourceAttributesSplit: ["Units", "Unit", "Types", "MetricType"]
+      ExtraGroupAttributes: ["DeviceType", "ADC"]
+      
+  - task: moveck.data-modifier.split-set
+    displayName : Separate EMG data sets
+    inputs:
+      SourceSet: ${{trial.data.source}}/Data/Analogs
+      DestinationGroup: ${{trial.data.processings}}/EmgRaw
+      LabelsFilter: ${{env.emgList}}
+      SourceAttributesSplit: ["Units", "Unit", "Types", "MetricType"]
+      ExtraGroupAttributes: ["DeviceType", "ADC"]    
+
+  - task: signal.set-butterworth #passe-haut
+    displayName: Highpass filtering
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/Emg
+      CutoffFrequency: ${{parameters.filterCutoff}}
+      Order: ${{parameters.filterOrder}}
+      Bandform: ZeroLagHighPass
+    condition: ${{parameters.filterEnabled}}
+
+  - task: signal.set-butterworth #band-stop
+    displayName: Bandstop filtering
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/Emg
+      CutoffFrequency: 60
+      Order: ${{parameters.filterOrder}}
+      Bandform: ZeroLagBandStop
+      BandWidth: 10
+    condition: ${{parameters.filterEnabled}}
+
+  - task: signal.set-rectify
+    displayName: Signal rectification
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/Emg
+
+  - task: moveck.signal.extract-set-maximum-extrema
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/Emg
+      DestinationGroup: ${{trial.data.processings}}/EmgMaximumExtrema
+
+  - task: moveck.biomechanist.normalize-set-connected-set
+    displayName: Signal normalization
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/Emg
+      DestinationGroup: ${{trial.data.processings}}/Emg
+      NormalizationGroup: ${{trial.data.processings}}/EmgMaximumExtrema
+      Unit: "one" #Uniteless

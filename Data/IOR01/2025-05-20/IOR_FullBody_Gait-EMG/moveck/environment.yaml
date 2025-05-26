@@ -1,0 +1,70 @@
+environment:
+  props:
+    BodyRegion: FullBody
+    Gender: M
+    GlobalVerticalAxis: +Z
+    Height: 1850.0000240000002
+    LandmarksMap:
+      LCAJ: L_SAE
+      LFAL: L_FAL
+      LFAX: L_FAX
+      LFCC: L_FCC
+      LFLE: L_FLE
+      LFM1: L_FM1
+      LFM2: L_FM2
+      LFM5: L_FM5
+      LFME: L_FME
+      LFTC: L_FTC
+      LHAR: L_HUM
+      LHLE: L_HLE
+      LHM2: L_HM2
+      LIAS: L_IAS
+      LIPS: L_IPS
+      LRSP: L_RSP
+      LSTB: L_HEAD
+      LTAM: L_TAM
+      LTTC: L_TTC
+      LUSP: L_USP
+      MLV1: LV1
+      MLV3: LV3
+      MLV5: LV5
+      MSGL: SGL
+      MSJN: SJN
+      MSXS: SXS
+      MTV2: TV2
+      MTV7: CV7
+      RCAJ: R_SAE
+      RFAL: R_FAL
+      RFAX: R_FAX
+      RFCC: R_FCC
+      RFLE: R_FLE
+      RFM1: R_FM1
+      RFM2: R_FM2
+      RFM5: R_FM5
+      RFME: R_FME
+      RFTC: R_FTC
+      RHAR: R_HUM
+      RHLE: R_HLE
+      RHM2: R_HM2
+      RIAS: R_IAS
+      RIPS: R_IPS
+      RRSP: R_RSP
+      RSTB: R_HEAD
+      RTAM: R_TAM
+      RTTC: R_TTC
+      RUSP: R_USP
+    LeftFlatFootEnabled: true
+    LeftSoleDelta: 0.0
+    LeftSoleDeltaAdjustementEnable: false
+    MarkerDiameter: 14.0
+    Mass: 80.0
+    RightFlatFootEnabled: true
+    RightSoleDelta: 0.0
+    RightSoleDeltaAdjustementEnable: false
+    Session: '2025-05-20'
+    Subject: IOR01
+    emgList:
+    - L Tibialis anterior
+    - L Gastrocnemius lateral
+    - R Tibialis anterior
+    - R Gastrocnemius lateral

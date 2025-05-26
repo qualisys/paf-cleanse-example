@@ -1,0 +1,39 @@
+details:
+  id: prepare-data
+  name: Prepare data
+  version: 1.0.0
+  publisher: moveck
+  extension: data
+  description: Pipeline to prepare data 
+  categories:
+  - biomechanics
+  - motion analysis
+  - gait analysis
+  tags:
+  - calibration
+
+parameters:
+  - name: modelName
+    type: string
+
+steps:
+  - task: moveck.device.prepare-markers-from-c3d
+    inputs:
+      filterEnabled: true
+      markerLabelsFilter: ${{env.LandmarksMap.items}} #given by calling application
+      
+  - task: moveck.data-modifier.generate-nan-metrics-if-missing
+    inputs:
+      sourceGroup: ${{trial.data.processings}}/Markers
+      destinationGroup: ${{trial.data.processings}}/Markers
+      names: ${{env.LandmarksMap.values}}
+      components: [3, 1]
+      metricType: Position     
+
+  - task: moveck.device.prepare-emg-channels
+
+  - task: moveck.device.prepare-forceplates-from-c3d
+
+  - task: moveck.device.detect-ground-segment-from-forceplates 
+    inputs:
+      modelName: ${{parameters.modelName}}  

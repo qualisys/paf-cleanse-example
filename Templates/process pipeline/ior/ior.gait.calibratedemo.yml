@@ -1,0 +1,42 @@
+details:
+  id: calibratedemo
+  name: Calibrate the QIOR model from a C3D file
+  version: 1.0.0
+  publisher: ior
+  extension: gait
+  description: Pipeline to calibrate the QIOR model with settings available in a C3D file.
+  categories:
+  - biomechanics
+  - motion analysis
+  - gait analysis
+  tags:
+  - qualisys
+  - calibration
+
+parameters:
+  - name: modelName
+    type: string
+    default: IOR
+
+steps:
+
+- task: moveck.ior.initialize
+  inputs:
+    destinationGroup: ${{environment}}/${{parameters.modelName}}
+    LandmarksMap: ${{env.LandmarksMap.items}}
+    BodyRegion: ${{env.BodyRegion}} 
+    LeftFootNormalized: ${{env.LeftFlatFootEnabled}}
+    RightFootNormalized: ${{env.RightFlatFootEnabled}}
+    Mass: ${{env.Mass}}
+    GlobalVerticalAxis: ${{env.GlobalVerticalAxis}}
+
+- task: moveck.ior.calibrate
+  inputs:
+    sourceGroup: ${{trial.data.processings}}/Markers
+    destinationGroup: ${{environment}}/${{parameters.modelName}}
+    LandmarksMap: ${{env.LandmarksMap.items}}
+    BodyRegion: ${{env.BodyRegion}} 
+    LeftFootNormalized: ${{env.LeftFlatFootEnabled}}
+    RightFootNormalized: ${{env.RightFlatFootEnabled}}
+    Mass: ${{env.Mass}}
+    GlobalVerticalAxis: ${{env.GlobalVerticalAxis}}

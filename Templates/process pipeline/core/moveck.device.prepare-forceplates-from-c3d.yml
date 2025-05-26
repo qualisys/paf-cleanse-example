@@ -1,0 +1,66 @@
+details:
+  id: prepare-forceplates-from-c3d
+  name: Prepare force platforms and compute ground reaction wrenches
+  version: 1.0.0
+  publisher: moveck
+  extension: device
+  description: Extract force platform devices for a trial imported from a C3D file, apply a low pass zero-lag Butterwork filter on associated channels, and compute ground reaction wrenches.
+  categories:
+  - biomechanics
+  - device
+  - motion analysis
+  tags:
+  - force platform
+  - forceplate
+  - low pass filter
+
+parameters:
+  - name: filterCutoff
+    type: number 
+    default: 50
+  - name: filterOrder
+    type: integer
+    default: 2
+  - name: filterEnabled
+    type: boolean
+    default: true
+
+steps:
+- task: org.c3d.detect-forceplate-channels
+  inputs:
+    SourceGroup: ${{trial.data.source}}
+    DestinationGroup: ${{trial.data.processings}}/ADCTemp
+
+- task: data-modifier.group-copy
+  inputs:
+    SourceGroup: ${{trial.data.processings}}/ADCTemp
+    DestinationGroup: ${{trial.data.processings}}/ADC
+
+- task: signal.set-butterworth
+  inputs:
+    SourceGroup: ${{trial.data.processings}}/ADC
+    CutoffFrequency: ${{parameters.filterCutoff}}
+    Bandform: ZeroLagLowPass
+    Order: ${{parameters.filterOrder}}
+  condition: ${{parameters.filterEnabled == true}}
+
+- task: signal.set-downsample
+  inputs:
+    SourceGroup: ${{trial.data.processings}}/ADC
+    HintGroup:  ${{trial.data.processings}}/Markers
+    ScanRecursive: true
+    
+- task: org.c3d.forceplate-detect
+  inputs:
+    SourceGroup: ${{trial.data.processings}}/ADC
+    MetadataSourceGroup: ${{trial.name}} #python script fills it by default
+    DestinationGroup:  ${{trial.data.processings}}/ForcePlate #will create the individual FP{index} groups
+
+- task: classical-mechanics.compute-ground-reaction-wrenches
+  inputs:
+    DestinationGroup: ${{trial.data.processings}}/ForcePlate
+    SourceGroup: ${{trial.data.processings}}/ForcePlate
+    Locations: 
+      - surface-origin
+      - point-of-application
+

@@ -1,0 +1,86 @@
+details:
+  id: kinematicsdemo
+  name: Reconstruct the QIOR model and compute kinematics
+  version: 1.0.0
+  publisher: ior
+  extension: gait
+  description: Pipeline to reconstruct the QIOR model with a least square pose estimator method and compute joint angles and progression angles.
+  categories:
+  - biomechanics
+  - motion analysis
+  - gait analysis
+  tags:
+  - IOR
+  - kinematics
+  - progression
+  - pose estimator
+  - least square
+
+parameters:
+  - name: modelName
+    type: string
+    default: IOR
+
+steps:
+- task: data-modifier.group-copy
+  displayName: Instantiate the IOR model
+  inputs:
+    sourceGroup: ${{environment}}/${{parameters.modelName}}
+    destinationGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+    scanRecursive: true
+
+- task: pose-estimation.register-clusters_as-is
+  inputs:
+    destinationGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+    poseName: Standing
+
+- task: pose-estimation.register-bodies
+  inputs:
+    modelGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+    poseName: Standing
+
+- task: moveck.ior.compute-sjcx
+  inputs:
+    pointGroup: ${{trial.data.processings}}/Markers
+    sourceGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+    destinationGroup: ${{trial.data.processings}}/${{parameters.modelName}}/Arm
+    LandmarksMap: ${{env.LandmarksMap.items}}
+  condition: ${{env.BodyRegion == "FullBody"}}
+
+- task: pose-estimation.reconstruct-bodies_least-squares_horn1987
+  displayName: Reconstruct the IOR model (Least Square Pose Estimator)
+  inputs:
+    modelGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+    positionsGroups:
+      - ${{trial.data.processings}}/Markers
+      - ${{trial.data.processings}}/${{parameters.modelName}}/Arm
+    excludedSegments: [LeftHand, RightHand]
+    landmarksMap: ${{env.LandmarksMap.items}}
+
+- task: moveck.ior.compute-wjcx
+  inputs:
+    pointGroup: ${{trial.data.processings}}/Markers
+    sourceGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+    destinationGroup: ${{trial.data.processings}}/${{parameters.modelName}}/Arm
+    LandmarksMap: ${{env.LandmarksMap.items}}
+  condition: ${{env.BodyRegion == "FullBody"}}
+
+- task: pose-estimation.reconstruct-bodies_least-squares_horn1987
+  displayName: Reconstruct the IOR model (Least Square Pose Estimator)
+  inputs:
+    modelGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+    positionsGroups:
+      - ${{trial.data.processings}}/Markers
+      - ${{trial.data.processings}}/${{parameters.modelName}}/Arm
+    includedSegments: [LeftHand, RightHand]
+    landmarksMap: ${{env.LandmarksMap.items}}
+
+- task: classical-mechanics.straight-progression-axis
+  inputs:
+    model: ${{trial.data.processings}}/${{parameters.modelName}}
+    segmentReferenceHints: [Pelvis, Torso]
+
+- task: moveck.ior.compute-joint-angles
+  inputs:
+    model: ${{trial.data.processings}}/${{parameters.modelName}}
+    BodyRegion: ${{env.BodyRegion}}

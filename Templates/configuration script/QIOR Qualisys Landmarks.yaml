@@ -1,0 +1,109 @@
+Landmarks:  
+  RIAS: R_IAS
+  RIPS: R_IPS
+  LIPS: L_IPS
+  LIAS: L_IAS
+  LFTC: L_FTC
+  LFLE: L_FLE
+  LFME: L_FME
+  LFAX: L_FAX
+  LTTC: L_TTC
+  LFAL: L_FAL
+  LTAM: L_TAM
+  LFCC: L_FCC
+  LFM1: L_FM1
+  LFM2: L_FM2
+  LFM5: L_FM5
+  RFTC: R_FTC
+  RFLE: R_FLE
+  RFME: R_FME
+  RFAX: R_FAX
+  RTTC: R_TTC
+  RFAL: R_FAL
+  RTAM: R_TAM
+  RFCC: R_FCC
+  RFM1: R_FM1
+  RFM2: R_FM2
+  RFM5: R_FM5
+  MSJN: SJN
+  MSXS: SXS
+  MTV7: CV7
+  MTV2: TV2
+  MLV1: LV1
+  MLV3: LV3
+  MLV5: LV5
+  LCAJ: L_SAE
+  LHAR: L_HUM
+  LHLE: L_HLE
+  LRSP: L_RSP
+  LUSP: L_USP
+  LHM2: L_HM2
+  RCAJ: R_SAE
+  RHAR: R_HUM
+  RHLE: R_HLE
+  RRSP: R_RSP
+  RUSP: R_USP
+  RHM2: R_HM2
+  LSTB: L_HEAD
+  RSTB: R_HEAD
+  MSGL: SGL
+emgList:
+  - L Tibialis anterior
+  - L Gastrocnemius lateral
+  - R Tibialis anterior
+  - R Gastrocnemius lateral
+
+Parameters:
+  Mass: Mass
+  Height: Height
+  Gender: Gender
+  MarkerDiameter: MarkerDiameter
+  RightFlatFootEnabled: RightFlatFootEnabled
+  LeftFlatFootEnabled: LeftFlatFootEnabled
+  RightSoleDeltaAdjustementEnable: RightSoleDeltaAdjustementEnable
+  RightSoleDelta: RightSoleDelta
+  LeftSoleDeltaAdjustementEnable: LeftSoleDeltaAdjustementEnable
+  LeftSoleDelta: LeftSoleDelta
+  BodyRegion: BodyRegion
+  GlobalVerticalAxis: GlobalVerticalAxis
+ParametersDefaultValues:
+  Mass: 0
+  Gender: M
+  RightFlatFootEnabled: true
+  LeftFlatFootEnabled: true
+  RightSoleDeltaAdjustementEnable: false
+  LeftSoleDeltaAdjustementEnable:  false
+  RightSoleDelta: 0
+  LeftSoleDelta: 0
+  BodyRegion: FullBody
+  GlobalVerticalAxis: +Z
+
+ParametersConverter:
+  Gender:
+   - M: 0
+   - F: 1
+   - M: male
+   - F: female
+  RightFlatFootEnabled:
+   - false: 0 
+   - true: 1
+  LeftFlatFootEnabled:
+   - false: 0 
+   - true: 1
+  RightSoleDeltaAdjustementEnable:
+   - false: 0 
+   - true: 1
+  LeftSoleDeltaAdjustementEnable:
+   - false: 0 
+   - true: 1
+  BodyRegion:
+   - FullBody: 0 
+   - LowerBody: 1 
+   - UpperBody: 2 
+  GlobalVerticalAxis:
+   - +X: 0 
+   - +Y: 1 
+   - +Z: 2          
+   - -X: 3 
+   - -Y: 4 
+   - -Z: 5          

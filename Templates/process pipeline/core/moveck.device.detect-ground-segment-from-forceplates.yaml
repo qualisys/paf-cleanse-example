@@ -1,0 +1,48 @@
+details:
+  id: detect-ground-segment-from-forceplates
+  name: Step detection based on forceplates
+  version: 1.0.0
+  publisher: moveck
+  extension: device
+  description: Detection of the ground segment based on the forceplates signal
+  categories:
+  - biomechanics
+  - motion analysis
+  - gait analysis
+  tags:
+  - qualisys
+  - calibration
+
+
+parameters:
+  - name: modelName
+    type: string
+
+steps:
+  - task: classical-mechanics.ground-segment-wrench
+    displayName: Create the LeftGround segment
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/ForcePlate
+      DestinationGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+      GroundName: LeftGround
+      ReferenceSets:
+        - ${{trial.data.processings}}/Markers/L_FCC
+        - ${{trial.data.processings}}/Markers/L_FM2
+      UnreferenceSets:      
+        - ${{trial.data.processings}}/Markers/R_FCC
+        - ${{trial.data.processings}}/Markers/R_FM2      
+      Automatic: true
+
+  - task: classical-mechanics.ground-segment-wrench
+    displayName: Create the RightGround segment
+    inputs:
+      SourceGroup:  ${{trial.data.processings}}/ForcePlate
+      DestinationGroup: ${{trial.data.processings}}/${{parameters.modelName}}
+      GroundName: RightGround
+      ReferenceSets:      
+        - ${{trial.data.processings}}/Markers/R_FCC
+        - ${{trial.data.processings}}/Markers/R_FM2    
+      UnreferenceSets:     
+        - ${{trial.data.processings}}/Markers/L_FCC
+        - ${{trial.data.processings}}/Markers/L_FM2
+      Automatic: true

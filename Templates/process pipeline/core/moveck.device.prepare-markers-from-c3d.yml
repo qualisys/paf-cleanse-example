@@ -1,0 +1,62 @@
+details:
+  id: prepare-markers-from-c3d
+  name: Extraction and preparation of specific markers (fill gap, low pass filter)
+  version: 1.0.0
+  publisher: moveck
+  extension: device
+  description: Extract markers for a trial imported from a C3D file, try to fill occluded trajectories, and apply a low pass zero-lag Butterwork filter on associated channels.
+  categories:
+  - biomechanics
+  - data preparation
+  - device
+  - motion analysis
+  tags:
+  - markers
+  - mocap
+  - low pass filter
+  - fill gap
+
+parameters:
+  - name: markerLabelsFilter
+    type: list(string)
+  - name: filterEnabled
+    type: boolean
+    default: True
+  - name: fillGapEnabled
+    type: boolean
+    default: True
+  - name: filterCutoff
+    type: number
+    default: 6
+  - name: filterOrder
+    type: integer
+    default: 4
+
+#see python function prepare_markers, called in calibrate
+#python function prepare_markers does set-split, then group-copy, then fill-gap, then conditional butterworth (if asked for).
+
+steps:
+  - task: moveck.data-modifier.split-set
+    displayName: Split a list of markers from the Points section imported from a C3D file
+    inputs:
+      SourceSet: ${{trial.data.source}}/Data/Points
+      DestinationGroup: ${{trial.data.processings}}/Markers
+      LabelsFilter: ${{parameters.markerLabelsFilter}}
+      ExtraGroupAttributes: [DeviceType, Mocap]
+      SourceAttributesSplit: [Types, MetricType]
+
+  - task: signal.set-fill-gap
+    displayName: Fill gap markers (cubic spline)
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/Markers
+      HintMaxGapLength: 0.1
+    condition: ${{parameters.fillGapEnabled == true}}
+
+  - task: signal.set-butterworth
+    displayName: Filter markers (zero lag lowpass Butterworth)
+    inputs:
+      SourceGroup: ${{trial.data.processings}}/Markers
+      CutoffFrequency: ${{parameters.filterCutoff}}
+      Order: ${{parameters.filterOrder}}
+      Bandform: ZeroLagLowPass
+    condition: ${{parameters.filterEnabled == true}}

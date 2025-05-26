@@ -1,0 +1,3830 @@
+{
+    "application_version": "2025.1.0",
+    "contexts": [
+        "Left",
+        "Right"
+    ],
+    "description": "Template for QTM integration example with customizable parameters of interest.",
+    "name": "Template QTM Demo github",
+    "settings": {
+        "analysis_module": {
+            "Detections Per Signature": {
+                "com.moveck.data_store/pipe": {
+                    "Event detection algorithm": {
+                        "com.moveck.data_store.pipe/PipeIOR": {
+                            "ExistingEvents": {
+                                "type": "None"
+                            },
+                            "Ghoussayni": {
+                                "LandmarksMap": [
+                                    [
+                                        "L_FM2",
+                                        "LTOE"
+                                    ],
+                                    [
+                                        "R_FM2",
+                                        "RTOE"
+                                    ],
+                                    [
+                                        "L_FCC",
+                                        "LHEE"
+                                    ],
+                                    [
+                                        "R_FCC",
+                                        "RHEE"
+                                    ]
+                                ],
+                                "type": "Ghoussayni"
+                            },
+                            "Zeni": {
+                                "LandmarksMap": [
+                                    [
+                                        "L_IPS",
+                                        "LPSIS"
+                                    ],
+                                    [
+                                        "R_IPS",
+                                        "RPSIS"
+                                    ],
+                                    [
+                                        "SACR",
+                                        "SC"
+                                    ],
+                                    [
+                                        "L_FAL",
+                                        "LLTM"
+                                    ],
+                                    [
+                                        "R_FAL",
+                                        "RLTM"
+                                    ],
+                                    [
+                                        "L_FM2",
+                                        "LTOE"
+                                    ],
+                                    [
+                                        "R_FM2",
+                                        "RTOE"
+                                    ],
+                                    [
+                                        "L_FCC",
+                                        "LHEE"
+                                    ],
+                                    [
+                                        "R_FCC",
+                                        "RHEE"
+                                    ]
+                                ],
+                                "type": "Zeni"
+                            }
+                        }
+                    },
+                    "default_processing_pipeline": "com.moveck.data_store.pipe_2.0.0"
+                }
+            },
+            "EventTypes": [
+                {
+                    "Icon": "",
+                    "IsDefault": true,
+                    "Name": "Foot Off"
+                },
+                {
+                    "Icon": "",
+                    "IsDefault": true,
+                    "Name": "Foot Strike"
+                },
+                {
+                    "Icon": "",
+                    "IsDefault": true,
+                    "Name": "Interest Point"
+                }
+            ],
+            "Module ID": "analysis_module",
+            "events_config_per_signature": {
+                "com.innsport.exp": [
+                    {
+                        "event_sets": [
+                            {
+                                "context": "Left",
+                                "name": "Left_HS",
+                                "type": "Foot Strike"
+                            },
+                            {
+                                "context": "Left",
+                                "name": "Left_TO",
+                                "type": "Foot Off"
+                            },
+                            {
+                                "context": "Right",
+                                "name": "Right_HS",
+                                "type": "Foot Strike"
+                            },
+                            {
+                                "context": "Right",
+                                "name": "Right_TO",
+                                "type": "Foot Off"
+                            }
+                        ],
+                        "name": "Default",
+                        "uuid": "a5a37c7e-12ee-40d1-a012-6054020d29be"
+                    }
+                ]
+            },
+            "version": "1.2.0"
+        },
+        "comparison_module": {
+            "Layouts": [
+                {
+                    "LayoutName": "Left_Analog (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "L Gastrocnemius lateral",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "L Tibialis anterior",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Left_Force (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "Left Ground Reaction Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Left Ground Reaction Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Left Ground Reaction Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftAnkle_Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftHip_Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftHip_Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftKnee_Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftKnee_Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Left_Angle (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "LeftAnkle_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftElbow_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftElbow_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftElbow_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftHip_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftHip_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftKnee_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftKnee_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftShoulder_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftShoulder_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftShoulder_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftTorso_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftTorso_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftTorso_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Left_Moment (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "LeftAnkle_Moment",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Moment",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Moment",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Moment",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftHip_Moment",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftHip_Moment",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Moment",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftKnee_Moment",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftKnee_Moment",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Left_Power (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "LeftAnkle_Power",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Power",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Power",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Right_Analog (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "R Gastrocnemius lateral",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "R Tibialis anterior",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Right_Force (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "Right Ground Reaction Force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Right Ground Reaction Force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Right Ground Reaction Force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightAnkle_Force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightAnkle_Force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightAnkle_Force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightHip_force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightHip_force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightKnee_Force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightKnee_Force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Right_Angle (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "RightAnkle_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightAnkle_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightAnkle_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightElbow_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightElbow_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightElbow_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightHip_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightHip_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightKnee_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightKnee_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightShoulder_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightShoulder_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightShoulder_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightTorso_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightTorso_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightTorso_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Right_Moment (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "RightAnkle_Moment",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightAnkle_Moment",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightAnkle_Moment",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_Moment",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightHip_Moment",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightHip_Moment",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Moment",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightKnee_Moment",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightKnee_Moment",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Right_Power (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "RightAnkle_Power",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_Power",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Power",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Left (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "L Gastrocnemius lateral",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "L Tibialis anterior",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "Left Ground Reaction Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Left Ground Reaction Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Left Ground Reaction Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftAnkle_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftAnkle_Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftAnkle_Moment",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Moment",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftAnkle_Moment",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftAnkle_Power",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftElbow_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftElbow_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftElbow_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftHip_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftHip_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftHip_Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftHip_Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Moment",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftHip_Moment",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftHip_Moment",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftHip_Power",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftKnee_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftKnee_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Force",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftKnee_Force",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "LeftKnee_Force",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Moment",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftKnee_Moment",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "LeftKnee_Moment",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftKnee_Power",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftShoulder_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftShoulder_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftShoulder_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "LeftTorso_Angles",
+                                "Context": "Left",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftTorso_Angles",
+                                "Context": "Left",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "LeftTorso_Angles",
+                                "Context": "Left",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "LayoutName": "Right (Automatic Layout)",
+                    "Rows": [
+                        [
+                            {
+                                "Alias": "R Gastrocnemius lateral",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "R Tibialis anterior",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Analog"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "Right Ground Reaction Force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Right Ground Reaction Force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "Right Ground Reaction Force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightAnkle_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightAnkle_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightAnkle_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightAnkle_Force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightAnkle_Force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightAnkle_Force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightAnkle_Moment",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightAnkle_Moment",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightAnkle_Moment",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightAnkle_Power",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightElbow_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightElbow_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightElbow_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightHip_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightHip_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_Moment",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightHip_Moment",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightHip_Moment",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_Power",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightHip_force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightHip_force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightHip_force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightKnee_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightKnee_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Force",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightKnee_Force",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Force"
+                            },
+                            {
+                                "Alias": "RightKnee_Force",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Force"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Moment",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightKnee_Moment",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Moment"
+                            },
+                            {
+                                "Alias": "RightKnee_Moment",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Moment"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightKnee_Power",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "value",
+                                "Type": "Power"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightShoulder_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightShoulder_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightShoulder_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ],
+                        [
+                            {
+                                "Alias": "RightTorso_Angles",
+                                "Context": "Right",
+                                "DimIndex": 0,
+                                "DimName": "x",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightTorso_Angles",
+                                "Context": "Right",
+                                "DimIndex": 1,
+                                "DimName": "y",
+                                "Type": "Angle"
+                            },
+                            {
+                                "Alias": "RightTorso_Angles",
+                                "Context": "Right",
+                                "DimIndex": 2,
+                                "DimName": "z",
+                                "Type": "Angle"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "Module ID": "comparison_module",
+            "version": "1.0.0"
+        },
+        "cycle_module": {
+            "Auto-Select": [
+                {
+                    "Name": "Reject aberrant mean",
+                    "Parameters": [
+                        {
+                            "Parameter": "L Gastrocnemius lateral",
+                            "Range": [
+                                20,
+                                30
+                            ],
+                            "Tolerance": 1.5
+                        }
+                    ]
+                }
+            ],
+            "Cycle Display": {
+                "Mode": "Analysis linear interpolation",
+                "Reversed": false,
+                "time_unit": "s"
+            },
+            "Layouts": [
+                {
+                    "Layouts": [
+                        {
+                            "LayoutName": "Left (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "L Gastrocnemius lateral",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "L Tibialis anterior",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "Left Ground Reaction Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Left Ground Reaction Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Left Ground Reaction Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Power",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftElbow_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftElbow_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftElbow_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Power",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Power",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftShoulder_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftShoulder_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftShoulder_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftTorso_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftTorso_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftTorso_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Right (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "R Gastrocnemius lateral",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "R Tibialis anterior",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "Right Ground Reaction Force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Right Ground Reaction Force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Right Ground Reaction Force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Power",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightElbow_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightElbow_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightElbow_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_Power",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightHip_force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightHip_force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Power",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightShoulder_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightShoulder_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightShoulder_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightTorso_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightTorso_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightTorso_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Left_Analog (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "L Gastrocnemius lateral",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "L Tibialis anterior",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Left_Force (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "Left Ground Reaction Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Left Ground Reaction Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Left Ground Reaction Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Force",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Left_Angle (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftElbow_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftElbow_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftElbow_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftShoulder_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftShoulder_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftShoulder_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftTorso_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftTorso_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "LeftTorso_Angles",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Left_Moment (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftAnkle_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftHip_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "LeftKnee_Moment",
+                                        "Context": "Left",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Left_Power (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "LeftAnkle_Power",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftHip_Power",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "LeftKnee_Power",
+                                        "Context": "Left",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Right_Analog (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "R Gastrocnemius lateral",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "R Tibialis anterior",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Analog"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Right_Force (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "Right Ground Reaction Force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Right Ground Reaction Force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "Right Ground Reaction Force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightHip_force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightHip_force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Force"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Force",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Force"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Right_Angle (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightElbow_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightElbow_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightElbow_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightShoulder_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightShoulder_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightShoulder_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightTorso_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightTorso_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Angle"
+                                    },
+                                    {
+                                        "Alias": "RightTorso_Angles",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Angle"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Right_Moment (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightAnkle_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightHip_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "x",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 1,
+                                        "DimName": "y",
+                                        "Type": "Moment"
+                                    },
+                                    {
+                                        "Alias": "RightKnee_Moment",
+                                        "Context": "Right",
+                                        "DimIndex": 2,
+                                        "DimName": "z",
+                                        "Type": "Moment"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "LayoutName": "Right_Power (Automatic Layout)",
+                            "Rows": [
+                                [
+                                    {
+                                        "Alias": "RightAnkle_Power",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightHip_Power",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "Alias": "RightKnee_Power",
+                                        "Context": "Right",
+                                        "DimIndex": 0,
+                                        "DimName": "value",
+                                        "Type": "Power"
+                                    }
+                                ]
+                            ]
+                        }
+                    ],
+                    "SignatureSource": "com.moveck.data_store.pipe/PipeIOR"
+                }
+            ],
+            "Module ID": "cycle_module",
+            "Normalization": {
+                "NumberOfPoints": 101,
+                "Range": [
+                    0.0,
+                    100.0
+                ]
+            },
+            "Supported_Statistics": [
+                "Mean",
+                "Median",
+                "SD",
+                "CV",
+                "Max",
+                "Min",
+                "Range",
+                "IQR",
+                "Q1",
+                "Q3"
+            ],
+            "version": "1.1.0"
+        },
+        "event_module": {
+            "Layouts": [
+                {
+                    "Name": "3D parameters",
+                    "NumCol": 1,
+                    "NumRow": 3,
+                    "Plots": [
+                        [
+                            {
+                                "DimIndex": 0,
+                                "PlotType": 0,
+                                "XAxisName": "Time [sec]",
+                                "YAxisName": "X"
+                            }
+                        ],
+                        [
+                            {
+                                "DimIndex": 1,
+                                "PlotType": 0,
+                                "XAxisName": "Time [sec]",
+                                "YAxisName": "Y"
+                            }
+                        ],
+                        [
+                            {
+                                "DimIndex": 2,
+                                "PlotType": 0,
+                                "XAxisName": "Time [sec]",
+                                "YAxisName": "Z"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "Name": "Analog",
+                    "NumCol": 1,
+                    "NumRow": 1,
+                    "Plots": [
+                        [
+                            {
+                                "DimIndex": 0,
+                                "PlotType": 0,
+                                "XAxisName": "Time [sec]",
+                                "YAxisName": "Amplitude"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "Module ID": "event_module",
+            "version": "1.1.0"
+        },
+        "export_module": {
+            "Additional Data": {
+                "Processing History": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                }
+            },
+            "Custom Parameter Of Interest": {
+                "Number of cycles": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Number of events": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Number of selected cycles": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Total trial duration": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                }
+            },
+            "Footer": null,
+            "Header": {
+                "Condition": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Session": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Study": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Subject": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Task": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                }
+            },
+            "Imported Configurations": null,
+            "Module ID": "export_module",
+            "Qualisys User Id": "",
+            "Statistics": {
+                "CV": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "IQR": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Max": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Mean": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Median": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Min": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Q1": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Q3": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "Range": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                },
+                "SD": {
+                    "IsDefault": true,
+                    "IsMandatory": false,
+                    "IsVisible": true
+                }
+            },
+            "version": "1.1.0"
+        },
+        "general_module": {
+            "Module ID": "general_module",
+            "default_data_contract": "Template Demo Qualisys",
+            "event_horizontal_view": false,
+            "import_to_comparison_enabled": true,
+            "plot_colormap": "Jet",
+            "projects_workspace_path": "C:/Users/Pierre Badaire/Documents/_ProjetsCleanse",
+            "synchronized_axis": false,
+            "tooltips_enabled": true,
+            "version": "1.0.0"
+        },
+        "subphase_module": {
+            "Layouts": [
+                {
+                    "Layouts": [],
+                    "SignatureSource": "com.moveck.data_store.pipe/PipeIOR"
+                }
+            ],
+            "Module ID": "subphase_module",
+            "Subphases": {
+                "theoretical-stance-swing": [
+                    {
+                        "end_value": 62.0,
+                        "name": "Stance"
+                    },
+                    {
+                        "end_value": 100.0,
+                        "name": "Swing"
+                    }
+                ],
+                "theoretical-temporal-characteristics": [
+                    {
+                        "end_value": 12.0,
+                        "name": "Loading Response"
+                    },
+                    {
+                        "end_value": 31.0,
+                        "name": "Mid Stance"
+                    },
+                    {
+                        "end_value": 50.0,
+                        "name": "Terminal Stance"
+                    },
+                    {
+                        "end_value": 62.0,
+                        "name": "Pre Swing"
+                    },
+                    {
+                        "end_value": 75.0,
+                        "name": "Initial Swing"
+                    },
+                    {
+                        "end_value": 87.0,
+                        "name": "Mid Swing"
+                    },
+                    {
+                        "end_value": 100.0,
+                        "name": "Terminal Swing"
+                    }
+                ]
+            },
+            "version": "1.1.0"
+        }
+    },
+    "signatures": {
+        "com.moveck.data_store/pipe": {
+            "com.moveck.data_store.pipe/PipeIOR": {
+                "targets": [
+                    {
+                        "name": "Default",
+                        "parameters": {
+                            "Emg/L Gastrocnemius lateral": {
+                                "alias": "L Gastrocnemius lateral",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Analog"
+                            },
+                            "Emg/L Tibialis anterior": {
+                                "alias": "L Tibialis anterior",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Analog"
+                            },
+                            "Emg/R Gastrocnemius lateral": {
+                                "alias": "R Gastrocnemius lateral",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Analog"
+                            },
+                            "Emg/R Tibialis anterior": {
+                                "alias": "R Tibialis anterior",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Analog"
+                            },
+                            "LeftAnkle/Angles": {
+                                "alias": "LeftAnkle_Angles",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "LeftAnkle/Force": {
+                                "alias": "LeftAnkle_Force",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "LeftAnkle/Moment": {
+                                "alias": "LeftAnkle_Moment",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 1
+                                    },
+                                    {
+                                        "opposite_curve": true,
+                                        "y": 2
+                                    },
+                                    {
+                                        "z": 0
+                                    }
+                                ],
+                                "type": "Moment"
+                            },
+                            "LeftAnkle/Power": {
+                                "alias": "LeftAnkle_Power",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Power"
+                            },
+                            "LeftElbow/Angles": {
+                                "alias": "LeftElbow_Angles",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "LeftFootProgression/Force": {
+                                "alias": "Left Ground Reaction Force",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "LeftHip/Angles": {
+                                "alias": "LeftHip_Angles",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "LeftHip/Force": {
+                                "alias": "LeftHip_Force",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "LeftHip/Moment": {
+                                "alias": "LeftHip_Moment",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 1
+                                    },
+                                    {
+                                        "y": 2
+                                    },
+                                    {
+                                        "z": 0
+                                    }
+                                ],
+                                "type": "Moment"
+                            },
+                            "LeftHip/Power": {
+                                "alias": "LeftHip_Power",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Power"
+                            },
+                            "LeftKnee/Angles": {
+                                "alias": "LeftKnee_Angles",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "LeftKnee/Force": {
+                                "alias": "LeftKnee_Force",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "LeftKnee/Moment": {
+                                "alias": "LeftKnee_Moment",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 1
+                                    },
+                                    {
+                                        "y": 2
+                                    },
+                                    {
+                                        "z": 0
+                                    }
+                                ],
+                                "type": "Moment"
+                            },
+                            "LeftKnee/Power": {
+                                "alias": "LeftKnee_Power",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Power"
+                            },
+                            "LeftShoulder/Angles": {
+                                "alias": "LeftShoulder_Angles",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "LeftTorso/Angles": {
+                                "alias": "LeftTorso_Angles",
+                                "context": "Left",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "RightAnkle/Angles": {
+                                "alias": "RightAnkle_Angles",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "RightAnkle/Force": {
+                                "alias": "RightAnkle_Force",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "RightAnkle/Moment": {
+                                "alias": "RightAnkle_Moment",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "opposite_curve": true,
+                                        "x": 1
+                                    },
+                                    {
+                                        "y": 2
+                                    },
+                                    {
+                                        "z": 0
+                                    }
+                                ],
+                                "type": "Moment"
+                            },
+                            "RightAnkle/Power": {
+                                "alias": "RightAnkle_Power",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Power"
+                            },
+                            "RightElbow/Angles": {
+                                "alias": "RightElbow_Angles",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "RightFootProgression/Force": {
+                                "alias": "Right Ground Reaction Force",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "RightHip/Angles": {
+                                "alias": "RightHip_Angles",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "RightHip/Force": {
+                                "alias": "RightHip_force",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "RightHip/Moment": {
+                                "alias": "RightHip_Moment",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "opposite_curve": true,
+                                        "x": 1
+                                    },
+                                    {
+                                        "opposite_curve": true,
+                                        "y": 2
+                                    },
+                                    {
+                                        "z": 0
+                                    }
+                                ],
+                                "type": "Moment"
+                            },
+                            "RightHip/Power": {
+                                "alias": "RightHip_Power",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Power"
+                            },
+                            "RightKnee/Angles": {
+                                "alias": "RightKnee_Angles",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "RightKnee/Force": {
+                                "alias": "RightKnee_Force",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Force"
+                            },
+                            "RightKnee/Moment": {
+                                "alias": "RightKnee_Moment",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "opposite_curve": true,
+                                        "x": 1
+                                    },
+                                    {
+                                        "opposite_curve": true,
+                                        "y": 2
+                                    },
+                                    {
+                                        "z": 0
+                                    }
+                                ],
+                                "type": "Moment"
+                            },
+                            "RightKnee/Power": {
+                                "alias": "RightKnee_Power",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "value": 0
+                                    }
+                                ],
+                                "type": "Power"
+                            },
+                            "RightShoulder/Angles": {
+                                "alias": "RightShoulder_Angles",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            },
+                            "RightTorso/Angles": {
+                                "alias": "RightTorso_Angles",
+                                "context": "Right",
+                                "dim_specs": [
+                                    {
+                                        "x": 0
+                                    },
+                                    {
+                                        "y": 1
+                                    },
+                                    {
+                                        "z": 2
+                                    }
+                                ],
+                                "type": "Angle"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "version": "2.0"
+}

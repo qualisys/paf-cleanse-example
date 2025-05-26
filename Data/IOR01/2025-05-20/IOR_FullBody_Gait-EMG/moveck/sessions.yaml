@@ -1,0 +1,11 @@
+Trials:
+  Moveck IOR Dynamic 1.c3d:
+    MeasurementType: Dynamic
+  Moveck IOR Dynamic 2.c3d:
+    MeasurementType: Dynamic
+  Moveck IOR Static 1.c3d:
+    MeasurementType: Static
+TrialsHierarchy:
+  MeasurementType:
+  - Static
+  - Dynamic

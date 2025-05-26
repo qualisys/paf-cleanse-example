@@ -1,0 +1,195 @@
+Project ID: Moveck
+Package Information:
+    Name: MoveckExample
+    Version: 1.0.0
+    Required QTM version: 2021.2.6881
+
+Root type: Subject
+Default fields: [Creation date, Creation time]
+
+Date format: Iso
+Date separator: Dash
+Filename filter: \.(cmz|cmo|c3d)$
+
+Types:
+    Subject:
+        Participant:
+            Fields: [Participant ID,  Gender, Mass, Height, First name, Last name]
+            Children: [Session]
+            Directory pattern: $!Participant ID$
+
+    Session:
+        Gait Session:
+            Fields: [Session date, Session ID,GlobalVerticalAxis, LeftLegLength, RightLegLength,LeftFlatFootEnabled, LeftSoleDeltaAdjustementEnable ,LeftSoleDelta,RightFlatFootEnabled, RightSoleDeltaAdjustementEnable, RightSoleDelta,MarkerDiameter]
+            Display order: [Participant ID, Session ID, Comments, GlobalVerticalAxis, LeftLegLength, RightLegLength, LeftFlatFootEnabled, LeftSoleDeltaAdjustementEnable ,LeftSoleDelta,RightFlatFootEnabled, RightSoleDeltaAdjustementEnable ,RightSoleDelta, MarkerDiameter, Session date, Creation date, Creation time]
+            Children: [Subsession]
+            Directory pattern: $Session date$
+
+    Subsession:
+        QIOR Qualisys Landmarks:
+            Fields: [Test condition, BodyRegion]
+            Display order: [Test condition, BodyRegion, Comments]
+            Measurements: [Moveck IOR Static, Moveck IOR Dynamic]
+            Analyses: [IOR2Cleanse, MoveckIOR, Cleanse]
+            Directory pattern: IOR_$!BodyRegion$_$!Test condition$
+
+Measurements:
+    Fields:
+        Measurement length: 15
+        Maximum count: 1
+    Moveck IOR Static:
+        Heading: Static
+        Minimum count: 1
+        Measurement type: Static
+    Moveck IOR Dynamic:
+        Heading: Dynamic
+        Measurement length: 30
+        Count: 6
+        Minimum count: 1
+        Maximum count: 30
+        Measurement type: Dynamic
+        Display fields dialog after creation: false
+
+Analyses:
+    MoveckIOR:
+        Type: External program
+        Program display name: PIQ
+        Export session: Yes
+        Export measurements: c3d
+        Arguments: [--working-directory, $WorkingDirectory$, --pipeline-id, "moveck.gait.iordemo", --output-file, Report_$!Participant ID$_$!Creation date$]
+    Cleanse:
+        Type: External program
+        Program display name: Cleanse
+        Arguments: [--trial,$WorkingDirectory$/moveck/Report_$!Participant ID$_$!Creation date$.h5, --template, Template QTM Demo github, --folder, $WorkingDirectory$/moveck/CleanseProject, --project-name, $!Participant ID$_$!Creation date$_$!Test condition$ ]
+        Do not wait for Application: Yes
+    IOR2Cleanse:
+        Type: Compound
+        Components: [MoveckIOR, Cleanse]
+
+Fields:
+    Participant ID:
+        Type: String
+        Force: Yes
+        Inherit: Connect
+    Session ID:
+        Type: String
+        Inherit: Connect
+    Session date:
+        Type: Date
+        Readonly: Yes        
+    Test condition:
+        Type: String
+        Inherit: Connect      
+    First name:
+        Type: String
+        Inherit: Connect
+    Last name:
+        Type: String
+        Inherit: Connect
+    Creation date:
+        Type: Date
+        Readonly: Yes
+    Creation time:
+        Type: TimeOfDay
+        Readonly: Yes
+    BodyRegion:
+        Type: Enum
+        Values: [FullBody, UpperBody, LowerBody]      
+    GlobalVerticalAxis:
+        Type: Enum
+        Values: [+X,+Y,+Z,-X,-Y,-Z] 
+        Default: +Z      
+    Height:
+        Type: Float
+        Quantity: Length
+        Unit: Meters
+        Decimals: 2
+        Max: 2.5
+        Min: 0.5
+    Mass:
+        Type: Float
+        Quantity: Mass
+        Unit: Kilograms
+        Decimals: 1
+        Max: 300
+        Min: 1
+        Force: true
+    Gender:
+        Type: Enum
+        Values: [female, male, other]
+    Measurement type:
+        Type: Enum
+        Values: [Static, Dynamic]
+        Default: Dynamic
+        Hidden: Yes
+    MarkerDiameter:
+        Type: Float
+        Quantity: Length
+        Unit: Millimeters
+        Decimals: 1
+        Max: 40
+        Min: 0
+        Default: 0.014
+    LeftLegLength:
+        Type: Float
+        Quantity: Length
+        Unit: Millimeters
+        Decimals: 0
+        Max: 2000
+        Min: 0
+    RightLegLength:
+        Type: Float
+        Quantity: Length
+        Unit: Millimeters
+        Decimals: 0
+        Max: 2000
+        Min: 0   
+    LeftFlatFootEnabled:
+        Type: Boolean
+        Default: Yes
+        Display: checkbox
+    RightFlatFootEnabled:
+        Type: Boolean
+        Default: Yes
+        Display: checkbox
+    LeftSoleDeltaAdjustementEnable:
+        Type: Boolean
+        Default: No
+        Display: checkbox    
+    RightSoleDeltaAdjustementEnable:
+        Type: Boolean
+        Default: No
+        Display: checkbox  
+    LeftSoleDelta:
+        Type: Float
+        Quantity: Length
+        Unit: Millimeters
+        Decimals: 0
+    RightSoleDelta:
+        Type: Float
+        Quantity: Length
+        Unit: Millimeters
+        Decimals: 0
+
+Columns:
+    Default column definitions:
+        ID:
+            Width: 225
+            Fields:
+                Default: Filename
+                Participant: Participant ID
+                Moveck CGM: Test condition
+        Creation:
+            Width: 65
+            Field: Creation date
+        Last name:
+            Width: 100
+            Fields:
+                Participant: Last name
+        First name:
+            Width: 100
+            Fields:
+                Participant: First name
+        Comments:
+            Field: Comments
+            Width: 100
