@@ -19,12 +19,11 @@ There are two ways how to set up the project for QTM:
 
 ## General Information
 
-This folder provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM. It is a **walking trial**.
+This folder provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM. It contains:
+   - two **walking trials**
    - Marker set: IOR  
    - Associated reconstruction method  
    - Force platforms / markers / EMG
-
-
 
 ## Installation and Configuration for Automated Processing
 The following steps describe the installation and configuration of Pipe and Cleanse to enable automated processing.
@@ -44,14 +43,12 @@ Copy and replace files from the GitHub repository to the following locations:
 - From `Templates/process pipeline`  
   → To `C:/Users/Public/Moveck/pipe/pipelines`
 
-
 ### 3. Cleanse Configuration
 
 1. Open Cleanse  
 2. Add the following template to your list of project templates:  
    `Templates/Cleanse - Template QTM Demo github.json`  
       *This allows you to view and clean the data.*
-
 
 ### 4. QTM Setup (Section: Pipe Processing)
 
