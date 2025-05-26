@@ -19,7 +19,7 @@ There are two ways how to set up the project for QTM:
 
 ## General Information
 
-This folder provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM. It contains:
+This repository provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM. It contains:
    - two **walking trials**
    - Marker set: IOR  
    - Associated reconstruction method  
