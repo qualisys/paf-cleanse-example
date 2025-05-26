@@ -2,9 +2,9 @@
 
 To download the latest version of the example project to your computer, you can either:
 
-Click here to download the latest release.
-— or —
-Clone this repository to your computer.
+* [Click here](https://github.com/qualisys/paf-cleanse-example/archive/refs/heads/main.zip) to download the latest release.
+<br>— or —
+* Clone this repository to your computer.
 
 ## Preparing QTM project
 
