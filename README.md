@@ -61,9 +61,9 @@ In QTM:
 3. Set **Cleanse** path to: `C:\Program Files\Moveck\cleanse\Moveck cleanse.lnk` 
       *`.lnk` is a shortcut to the actual version of Cleanse application*
 
-## QTM Processing
+## Processing
 
-### Data Processing (Section: Joint Angle and EMG Preparation )
+### QTM Processing
 
 The execution of **Pipe** is directly integrated into QTM. 
 
@@ -75,7 +75,7 @@ The execution of **Pipe** is directly integrated into QTM.
 The result of the processing will be accessible directly into the condition trial's folder, under a subdirectory named `Moveck`, using the condition name. 
 In this example, the resulting file will be: `Moveck/Report_IOR01_2025-05-20.h5`
 
-### Data Cleaning (Section: Cleanse Processing)
+### Cleanse Processing
 
 Upon opening the project in **Cleanse**, you will see that your dynamic and static trials are listed in the central **Trial Selection** area.
 
