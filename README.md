@@ -19,7 +19,7 @@ There are two ways how to set up the project for QTM:
 
 ## General Information
 
-This repository provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM. It contains:
+This repository provides an example of how to use the Moveck Pipe and Cleanse applications with QTM. It contains:
    - Two **walking trials** with **IOR**  marker set
    - Two force plates
    - Four EMG channels
@@ -65,7 +65,7 @@ In QTM:
 
 ### Data Processing (Section: Joint Angle and EMG Preparation )
 
-The execution of **Pipe** is directly integrated into **QTM (Qualisys Track Manager)**. 
+The execution of **Pipe** is directly integrated into QTM. 
 
 1. To launch processing, simply select the session or a specific trial within QTM. 
       *The processing defined by the previously copied scripts will automatically run from there.*
