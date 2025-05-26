@@ -1,12 +1,25 @@
 # Qualisys PAF – Moveck Pipe / Cleanse Example
----
 
+To download the latest version of the example project to your computer, you can either:
+
+Click here to download the latest release.
+— or —
+Clone this repository to your computer.
+
+## Preparing QTM project
+
+There are two ways how to set up the project for QTM:
+
+If you are going to use this example in a single project:
+    Unzip the zip file with source code na copy its content into a QTM project
+If you plan to create multiple projects based on this example, follow these steps to make the example available in the New Project dialog in QTM:
+    Unzip the zip file with source code to `C:\Program Files\Qualisys\Qualisys Track Manager\Packages
+    Name the folder Cleanse Example
+    Delete Settings.qtmproj. This makes the example available in QTM. Then for to QTM > File > New Project and create new project based on Cleanse Example.
 
 ## General Information
----
 
-This folder provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM.
-**Walking Trial**  
+This folder provides an example of how to use the Moveck Pipe and Cleanse applications with Qualisys QTM. It is a **walking trial**.
    - Marker set: IOR  
    - Associated reconstruction method  
    - Force platforms / markers / EMG
@@ -14,7 +27,6 @@ This folder provides an example of how to use the Moveck Pipe and Cleanse applic
 
 
 ## Installation and Configuration for Automated Processing
----
 The following steps describe the installation and configuration of Pipe and Cleanse to enable automated processing.
 
 ### 1. Installation Steps
@@ -52,10 +64,7 @@ In QTM:
 3. Set **Cleanse** path to: `C:\Program Files\Moveck\cleanse\Moveck cleanse.lnk` 
       *`.lnk` is a shortcut to the actual version of Cleanse application*
 
-
-
-### QTM Processing
----
+## QTM Processing
 
 ### Data Processing (Section: Joint Angle and EMG Preparation )
 
