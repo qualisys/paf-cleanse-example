@@ -50,9 +50,9 @@ Copy and replace files from the GitHub repository to the following locations:
    `Templates/Cleanse - Template QTM Demo github.json`  
       *This allows you to view and clean the data.*
 
-### 4. QTM Setup (Section: Pipe Processing)
+### 4. QTM Setup
 
-1. Double click on `Settings.PAF` to open the example project.
+1. Double click on `Settings.paf` to open the example project.
 
 In QTM:
 
