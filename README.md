@@ -11,7 +11,7 @@ To download the latest version of the example project to your computer, you can 
 There are two ways how to set up the project for QTM:
 
 1. If you are going to use this example in a single project:
-    1. Unzip the zip file with source code na copy its content into a QTM project
+    1. Unzip the zip file with source code and copy its content into a QTM project
 2. If you plan to create multiple projects based on this example, follow these steps to make the example available in the New Project dialog in QTM:
     1. Unzip the zip file with source code to `C:\Program Files\Qualisys\Qualisys Track Manager\Packages`
     2. Name the folder `Cleanse Example`
