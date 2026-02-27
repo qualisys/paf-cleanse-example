@@ -1,8 +1,9 @@
 Project ID: Moveck
 Package Information:
     Name: MoveckExample
-    Version: 1.0.0
+    Version: 2.0.1
     Required QTM version: 2021.2.6881
+    Encoding bytes: €€€€€
 
 Root type: Subject
 Default fields: [Creation date, Creation time]
